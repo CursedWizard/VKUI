@@ -8,14 +8,22 @@ const testFiles = [
   './src/**/*.spec.ts', './src/**/*.spec.tsx',
   './src/**/*.e2e.ts', './src/**/*.e2e.tsx',
   './e2e/', './src/testing/',
+  './src/stories/'
 ];
 
 module.exports = {
   presets: [
-    ['@babel/preset-env', { modules: useModules ? false : 'commonjs' }],
-    '@babel/preset-react',
-    '@babel/preset-typescript'
+    ["@babel/preset-env", 
+      { 
+        modules: useModules ? false : "commonjs" }],
+    "@babel/preset-react",
+    "@babel/preset-typescript",
   ],
-  plugins: ['@babel/plugin-proposal-class-properties', '@babel/plugin-proposal-object-rest-spread', '@babel/plugin-transform-runtime'],
-  ignore: ['./src/vkui.js'].concat(isProduction ? testFiles : []),
+  plugins: [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+    '@babel/plugin-proposal-private-methods',
+  ],
+  ignore: ["./src/vkui.js"].concat(isProduction ? testFiles : []),
 };
